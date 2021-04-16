@@ -18,4 +18,14 @@ public class Aigua extends Pokemon {
         }
         return 0;
     }
+
+    @Override
+    public String getDefensa(Pokemon enemic, int atacEnemic) {
+        int probabilidad = 10-getPrecision();
+        int random10 = random.nextInt(probabilidad)+1;
+        if (probabilidad != random10) return enemic.getNom() + "ha fallat el atac";
+        if (enemic.getClass() == Foc.class) return "L’atac es poc efectiu. La vida s’ha reduït en" + (atacEnemic - getDefensa()*2) + " Punts la salut del pokemon" + getNom();
+        else if (enemic.getClass() == Electric.class) return "Atac crític. La vida s’ha reduït en" + (3*atacEnemic - getDefensa()*2) + " Punts la salut del pokemon" + getNom();
+        return "";
+    }
 }

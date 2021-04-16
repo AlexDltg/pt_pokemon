@@ -16,4 +16,9 @@ public class Foc extends Pokemon{
         }
         return 0;
     }
+
+    @Override
+    public String getDefensa(Pokemon enemic, int atacEnemic) {
+        return null;
+    }
 }
